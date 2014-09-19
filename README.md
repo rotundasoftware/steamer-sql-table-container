@@ -63,6 +63,7 @@ var knex = require( 'knex' )( {
         user        : "dbUser",
         password    : "password",
         database    : "dbName"
+    }
 } );
 
 options = {
