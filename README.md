@@ -7,13 +7,13 @@ This is a SQL table backed container meant to be used with [Steamer](https://git
 
 ```javascript
 var contactsContainer = new SQLTableContainer( {
-    tableName : 'contacts',
-    client : 'postgres',
-    connectionInfo : {
-    	host		 : "localhost",
-    	user		 : "dbUser",
-    	password : "password",
-    	database : "dbName"
+    tableName   : 'contacts',
+    client      : 'postgres',
+    connectionInfo  : {
+    	host        : "localhost",
+    	user        : "dbUser",
+    	password    : "password",
+    	database    : "dbName"
     }
 } );
 
@@ -25,8 +25,8 @@ var ssData = new steamer.Boat( {
 ssData.add( {
     contacts : {
         // Add an item to the contact container's "manifest" (i.e. list of contents).
-        fields : [ 'id', 'name', 'gender' ],
-        where : { gender : 'f' }
+        fields  : [ 'id', 'name', 'gender' ],
+        where   : { gender : 'f' }
     }
 } );
 ```
@@ -41,10 +41,10 @@ options = {
   "tableName" : "contacts",   // required: The table from which this container will be loading data
   "knex" : myKnex,            //optional: an initialized knex with connection info: http://knexjs.org/#Installation-client
   "connectionInfo" : {        // optional: a connection info object
-    host		 : "localhost",
-  	user		 : "dbUser",
-  	password : "password",
-  	database : "dbName"
+    host        : "localhost",
+  	user        : "dbUser",
+  	password    : "password",
+  	database    : "dbName"
   },
   "client" : "pg"             // (mysql|pg|sqllite3) optional: The type of db you are using. required if specifying `connectionInfo`
 }
@@ -54,10 +54,10 @@ options = {
 
 ```javascript
 manifest = {
-  "fields" : [ "id", "name" ], // required: array of fields to laod
-  "where" : { name : "John" }, // optional: mongo-style query specifying which rows to load.
-                               // supports: $or, $nin, $in, $lt, $lte, $gt, $gte
-  "offset" : 10,               // optional: how many records to skip
-  "limit" : 50,                // optional: maximum number of records to load
+  "fields"  : [ "id", "name" ],  // required: array of fields to laod
+  "where"   : { name : "John" }, // optional: mongo-style query specifying which rows to load.
+                                 // supports: $or, $nin, $in, $lt, $lte, $gt, $gte
+  "offset"  : 10,                // optional: how many records to skip
+  "limit"   : 50,                // optional: maximum number of records to load
 }
 ```
