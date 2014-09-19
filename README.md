@@ -35,18 +35,39 @@ ssData.add( {
 
 ##Constructor - SQLTableContainer( options )
 
-The constructor accepts an `options` hash. It must contain a `tableName` and either a `connectionInfo` and `client` or a `knex`.
+The constructor accepts an `options` hash. It must contain a `tableName` and either a `connectionInfo` and `client` or a `knex` client.
+
+Using `connectionInfo` and `client`:
+
 ```javascript
 options = {
   "tableName" : "contacts",   // required: The table from which this container will be loading data
-  "knex" : myKnex,            //optional: an initialized knex with connection info: http://knexjs.org/#Installation-client
+  "client" : "pg",            // (mysql|pg|sqllite3)
   "connectionInfo" : {        // optional: a connection info object
     host        : "localhost",
   	user        : "dbUser",
   	password    : "password",
   	database    : "dbName"
-  },
-  "client" : "pg"             // (mysql|pg|sqllite3) optional: The type of db you are using. required if specifying `connectionInfo`
+  }
+}
+```
+
+Using a `knex` client:
+
+```javascript
+
+var knex = require( 'knex' )( {
+    "client" : "pg",
+    "connectionInfo" : {        // optional: a connection info object
+        host        : "localhost",
+        user        : "dbUser",
+        password    : "password",
+        database    : "dbName"
+    };
+
+options = {
+  "tableName" : "contacts",   // required: The table from which this container will be loading data
+  "knex" : knex,
 }
 ```
 
