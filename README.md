@@ -49,7 +49,7 @@ options = {
   	password    : "password",
   	database    : "dbName"
   }
-}
+};
 ```
 
 Using a `knex` client:
@@ -63,12 +63,12 @@ var knex = require( 'knex' )( {
         user        : "dbUser",
         password    : "password",
         database    : "dbName"
-    };
+} );
 
 options = {
   "tableName" : "contacts",   // required: The table from which this container will be loading data
   "knex" : knex,
-}
+};
 ```
 
 ##container.add( manifest )
