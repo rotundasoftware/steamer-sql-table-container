@@ -58,7 +58,7 @@ Using a `knex` client:
 
 var knex = require( 'knex' )( {
     "client" : "pg",
-    "connectionInfo" : {        // optional: a connection info object
+    "connection" : {
         host        : "localhost",
         user        : "dbUser",
         password    : "password",
