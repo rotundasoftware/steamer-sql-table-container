@@ -50,7 +50,10 @@ SQLTableContainer.prototype.stuff = function( callback ) {
 		}, thisSelector );
 
 		var qb = _this._knex( _this._tableName );
+
+		thisSelector.fields = _.union( thisSelector.fields, [ 'id' ] ); // make sure we always select id, otherwise we can't merge multiple manifests as expected.
 		qb.select( thisSelector.fields );
+		
 		buildQuery.call( qb, thisSelector.where );
 
 		if( thisSelector.offset ) {
